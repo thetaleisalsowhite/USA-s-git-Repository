@@ -79,11 +79,6 @@ int main(void)
         Ystorage[1][i] = y[1];
         tyinstant[i] = ty;
     }
-    /*結果の出力*/
-    for (i = 0; i < n; i++)
-    {
-        printf("n=%d\tt=%f\tx[0]=%f\tx[1]=%f\ty[0]=%f\ty[1]=%f\n", i + 1, txinstant[i], Xstorage[0][i], Xstorage[1][i], Ystorage[0][i], Ystorage[1][i]);
-    }
 
     /*近似のプロレスで必要な変数宣言*/
     int j, k = 0;
@@ -98,6 +93,14 @@ int main(void)
         printf("Cannot open the csvfile\n");
         exit(1);
     }
+
+    /*結果の出力*/
+    for (i = 0; i < n; i++)
+    {
+        printf("n=%d\tt=%f\tx[0]=%f\tx[1]=%f\ty[0]=%f\ty[1]=%f\n", i + 1, txinstant[i], Xstorage[0][i], Xstorage[1][i], Ystorage[0][i], Ystorage[1][i]);
+        fprintf(fp, "n=%d\tt=%f\tx[0]=%f\tx[1]=%f\ty[0]=%f\ty[1]=%f\n", i + 1, txinstant[i], Xstorage[0][i], Xstorage[1][i], Ystorage[0][i], Ystorage[1][i]);
+    }
+
     //以下、ｎは分割の個数ではなく、（近似式の次数＋１）の値を示す。
     n = 2 + 1;
     double b[3], a[9];
@@ -132,24 +135,6 @@ int main(void)
     for (i = 0; i < n; i++)
     {
         T[i] = 0;
-    }
-
-    /*配列の初期化の確認(上手く行かなかった時の確認の名残です)*/
-    for (i = 0; i < 5; i++)
-    {
-        printf("s[%d]=%lf\n", i, S[i]);
-    }
-    for (i = 0; i < 3; i++)
-    {
-        printf("T[%d]=%lf\n", i, T[i]);
-    }
-    for (i = 0; i < 9; i++)
-    {
-        printf("a[%d]=%lf\n", i, a[i]);
-    }
-    for (i = 0; i < 3; i++)
-    {
-        printf("b[%d]=%lf\n", i, b[i]);
     }
 
     for (i = 0; i < (2 * n - 1); i++) /*配列S,Tを計算*/
@@ -220,22 +205,23 @@ int main(void)
     printf("\n精度の確認：差分は%lfです。", accuracy);
     fprintf(fp, "\n精度の確認：差分は%lfです。", accuracy);
 
+    fprintf(fp_csv, "x,y\n");
     /*係数取得後の関数への算出*/
-    for (i = 0; i < 2000; i++)
+    for (i = 0; i < 50; i++)
     {
-        fprintf(fp_csv, "%lf,", i * 0.001);
-        fprintf(fp_csv, "%lf\n", b[0] * (pow(i * 0.001, 0)) + b[1] * (pow(i * 0.001, 1)) + b[2] * (pow(i * 0.001, 2)));
+        fprintf(fp_csv, "%lf,", v0 * cos((M_PI) / 6) * (i * 0.04));
+        fprintf(fp_csv, "%lf\n", b[0] * (pow(v0 * cos((M_PI) / 6) * (i * 0.04), 0)) + b[1] * (pow(v0 * cos((M_PI) / 6) * (i * 0.04), 1)) + b[2] * (pow(v0 * cos((M_PI) / 6) * (i * 0.04), 2)));
     }
 
     /*係数取得後の関数への具体的な代入*/
     n = 0.15; /*ｎの用法は全半のプロセスとは違う。変数の型などの特徴から流用*/
     n = v0 * cos((M_PI) / 6) * n;
-    printf("\nt=%fにおいてｙ＝%lf", n, b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
-    fprintf(fp, "\nt=%fにおいてｙ＝%lf", n, b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
+    printf("\nt=0.15においてｙ＝%lf", b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
+    fprintf(fp, "\nt=0.15においてｙ＝%lf", b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
     n = 0.195;
     n = v0 * cos((M_PI) / 6) * n;
-    printf("\nt=%fにおいてｙ＝%lf", n, b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
-    fprintf(fp, "\nt=%fにおいてｙ＝%lf", n, b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
+    printf("\nt=0.195においてｙ＝%lf", b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
+    fprintf(fp, "\nt=0.195においてｙ＝%lf", b[0] * (pow(n, 0)) + b[1] * (pow(n, 1)) + b[2] * (pow(n, 2)));
 
     fclose(fp);
     fclose(fp_csv);
