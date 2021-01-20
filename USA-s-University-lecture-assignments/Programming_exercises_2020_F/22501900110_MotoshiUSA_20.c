@@ -98,7 +98,7 @@ int main(void)
   /*刻み幅の確認*/
   printf("刻み幅hは0.1です。\n");
   fprintf(fp, "刻み幅hは0.1です。\n");
-  h = 0.1;
+  h = 0.001;
   nnokosuu = (end - initial) / h;
   nnokosuu_int = nnokosuu;
 
