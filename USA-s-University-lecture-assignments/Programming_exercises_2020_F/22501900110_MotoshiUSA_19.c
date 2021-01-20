@@ -24,14 +24,14 @@ double runge(double t, double y, double h, double k)
 
 int main(void)
 {
-    double y = 0.0;
+    double y = 0.0;                     //変数定義
     double h = 0.0005;
     double t = 0.0;
     double k[4] = {0, 0.1, 0.15, 0.3};
     double a[4][11000];
     int i, j;
     FILE *fp, *fp_csv;
-    if ((fp = fopen("22501900110_MotoshiUSA_19.txt", "w")) == NULL)
+    if ((fp = fopen("22501900110_MotoshiUSA_19.txt", "w")) == NULL)//ファイル定義
     {
         printf("Cannot open the file\n");
         exit(1);
@@ -42,7 +42,7 @@ int main(void)
         exit(1);
     }
 
-    for (j = 0; j < 4; j++)
+    for (j = 0; j < 4; j++)//配列初期化
     {
         for (i = 0; i < 11000; i++)
         {
@@ -50,7 +50,7 @@ int main(void)
         }
     }
 
-    for (j = 0; j < 4; j++)
+    for (j = 0; j < 4; j++)//計算と配列への入力
     {
         t = 0;
         y = 0;
@@ -62,12 +62,12 @@ int main(void)
         }
     }
     t = 0;
-    fprintf(fp_csv, "x,k=0.01,k=0.1,k=0.15,k=0.3\n");
-    fprintf(fp_csv, "0,0,0,0,0\n");
-    for (i = 0; i < 11000; i++)
+    fprintf(fp_csv, "x,k=0.01,k=0.1,k=0.15,k=0.3\n");   //グラフ化の際の列名の定義
+    fprintf(fp_csv, "0,0,0,0,0\n");                     //初期値の入力
+    for (i = 0; i < 11000; i++)                         //表示
     {
         t = t + h;
-        printf("%f  %f  %f  %f  %f\n", t, a[0][i], a[1][i], a[2][i], a[3][i]);
+        printf("%f  %f  %f  %f  %f\n",      t, a[0][i], a[1][i], a[2][i], a[3][i]);
         fprintf(fp, "%f  %f  %f  %f  %f\n", t, a[0][i], a[1][i], a[2][i], a[3][i]);
         fprintf(fp_csv, "%f,%f,%f,%f,%f\n", t, a[0][i], a[1][i], a[2][i], a[3][i]);
     }
