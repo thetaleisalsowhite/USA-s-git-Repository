@@ -11,12 +11,12 @@ float ywork[2], k0[2], k1[2], k2[2], k3[2]; /*ルンゲクッタ法で用いる�
 int i = 0, nnokosuu_int; /*カウンタと表示の単純化*/
 float x, y[2], initial = 0, end = 0, nnokosuu;
 
-void rungekutta(float *x, float *y, float h);
+void rungekutta(float *x, float *y, float h); /*関数の宣言*/
 float function(float x, float *y, int j);
 
-float function(float x, float *y, int j)
-{           /*右辺を求める関数*/
-  double I; //長方形断面積
+float function(float x, float *y, int j) /*二階微分*/
+{
+  double I; //変数宣言
   double ddt;
   double E = 206 * pow(10, 9);
   double W = 30;
@@ -36,9 +36,8 @@ float function(float x, float *y, int j)
   }
   return f;
 }
-
-void rungekutta(float *x, float *y, float h)
-{ /*ルンゲクッタ法*/
+void rungekutta(float *x, float *y, float h) /*ルンゲクッタ法*/
+{
 
   for (j = 0; j < 2; j++)
   { /*k1の計算とyの変化量の記憶*/
@@ -78,6 +77,7 @@ void rungekutta(float *x, float *y, float h)
 
 int main(void)
 {
+  /*ファイル定義*/
   FILE *fp;
   if ((fp = fopen("22501900110_MotoshiUSA_20.txt", "w")) == NULL)
   {
@@ -90,31 +90,36 @@ int main(void)
     printf("Cannot open the file\n");
     exit(1);
   }
-
-  printf("積分区間は０～0.5です。\n"); /*積分範囲の確認*/
+  /*積分範囲の確認*/
+  printf("積分区間は０～0.5です。\n");
   fprintf(fp, "積分区間は０～0.5です。\n");
   initial = 0;
   end = 0.5;
-  printf("刻み幅hは0.1です。\n"); /*刻み幅の確認*/
+  /*刻み幅の確認*/
+  printf("刻み幅hは0.1です。\n");
   fprintf(fp, "刻み幅hは0.1です。\n");
   h = 0.1;
   nnokosuu = (end - initial) / h;
   nnokosuu_int = nnokosuu;
 
+  /*初期値の設定*/
   x = 0;
-  y[0] = 0; /*初期値の設定*/
+  y[0] = 0;
   y[1] = 0;
 
-  printf("入力された値は以下の通りです。\n積分区間は[%lf,%lf]\n", initial, end); /*入力事項の確認*/
+  /*入力事項の確認*/
+  printf("入力された値は以下の通りです。\n積分区間は[%lf,%lf]\n", initial, end);
   printf("h=%lf\nn=%ld\nx_0=%lf y[1]=%lf y[2]=%lf\n", h, nnokosuu_int, x, y[0], y[1]);
   fprintf(fp, "入力された値は以下の通りです。\n積分区間は[%lf,%lf]\n", initial, end);
   fprintf(fp, "h=%lf\nn=%ld\nx_0=%lf y[1]=%lf y[2]=%lf\n", h, nnokosuu_int, x, y[0], y[1]);
+  fprintf(fp_csv, "y1=%lf y2=%lf\n", y[0], y[1]);
 
+  /*計算と結果の出力*/
   for (i = 0; i < nnokosuu; i++)
   {
     rungekutta(&x, y, h);
     fprintf(fp, "y1=%lf y2=%lf\n", y[0], y[1]);
-    printf("n=%d  x=%lf  y[1]=%lf y[2]=%lf\n", i + 1, x, y[0], y[1]); /*結果の出力*/
+    printf("n=%d  x=%lf  y[1]=%lf y[2]=%lf\n", i + 1, x, y[0], y[1]);
     fprintf(fp, "n=%d  x=%lf  y[1]=%lf y[2]=%lf\n", i + 1, x, y[0], y[1]);
     fprintf(fp_csv, "%lf,%lf,%lf\n", x, y[0], y[1]);
   }
