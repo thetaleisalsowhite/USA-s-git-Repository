@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
+
   <head>
     <meta charset="utf-8">
     <title>USA’Portfolio</title>
     <meta name="description" content="果たして成果物発表会に間に合うのか??">
     <link rel="icon" href="img/icon.png">
   </head>
+
   <body>
     <img src="img/icon.png" width="100" height="100" alt="画像が見えてないよん。">
     <!-- メモ -->
      <h1>USA’Portfolio</h1>
       <p>Web班進捗生成中…HTML基礎文法勉強中…</p>
       
-  <h2>alt属性について</h2>
+  <h2 id="alt">alt属性について</h2>
   <p>alt属性の文章は音声読み上げで読まれる文章でもあるよ</p>
 
   <h2>strongタグ</h2>
-  <p>strongタグを使うと文字をこんな感じで協調できるよ</p>
+  <p>strongタグを使うと文字をこんな感じで<strong>強調</strong>できるよ</p>
 
   <blockquote cite="https://github.com/thetaleisalsowhite/USA-s-git-Repository/tree/develop/VScode-Practice">
     <h2>blockquoteタグ</h2>
@@ -92,7 +94,13 @@
   <h2>別ファイルへのリンクをつくるよん</h2>
   同じフォルダ内のリンクは＜a href="Another_link.html"＞こんな＜/a＞ってかくよ。<a href="Another_link.html">こんな</a>感じ。<br>
   同じフォルダ内のリンクは＜a href="Another/Another_link2.html"＞こんな＜/a＞ってかくよ。スラッシュが下階層の意味だね。<a href="links/Another_link2.html">こんな</a>感じ
-  <p></p>
+ 
+  <h2>ページ内リンクトップへ戻る</h2>
+  ＜a href="#top">トップ＜/a＞って書くと<a href="#top">トップ</a>へ戻るよ
+  <h2>ページ内リンク</h2>
+  ＜a href="#alt">場所＜/a＞って書くとaltってタグの付いた<a href="#alt">場所</a>に飛ぶことができるようになるよ。idタグの文字列は自由だよ。<strong>#を忘れずに！</strong>
 
+  <h2>区切りを示すタグ</h2>
+  詳しくは<a href="tags.html" target="_blank">コチラ</a>。
   </body>
 </html>
