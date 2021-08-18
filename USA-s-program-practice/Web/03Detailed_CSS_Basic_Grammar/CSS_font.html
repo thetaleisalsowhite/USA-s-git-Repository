@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSSの練習</title>
+    <link rel="stylesheet" href="css/styles_font.css" />
+  </head>
+  <body>
+    <h1>CSSの練習</h1>
+    <h2>フォント回り諸々</h2>
+    <p>
+      
+      各プロパティ解説
+      color:色指定 <br />
+      font-size:フォントサイズ指定<br />
+      text-align:揃える位置指定<br />
+      font-weight:太さのせってい<br />
+      text-decoration: line-through;打消し線<br />
+      font-weight: bold;　太字に設定<br />
+      text-decoration: underline;下線<br />
+      text-decoration: none;標準の下線の削除<br />
+      font-family:　フォントの設定<br>
+    </p>
+      <pre>
+        フォント設定にはいくつか注意点がある。<br>
+        まず、表示側のPCにフォントが設定されていること。カンマで区切っていくつもフォントが指定してあるのは、「無かったら、次はこのフォント」といった形で指定されている。<br>
+        この時、二語からなるフォントをを採用している場合はクォーテーション(””や’’)で囲う必要がある。<br>
+        また、日本語フォントを先に書くと、英字に日本語のフォントが適用されてしまうので、それが嫌な場合は英文フォントのあとに書くべし。<br>
+        最後のsans-serifは総称フォントファミリーと呼ばれるモノである。sans-serif がゴシック体系、 serif だったら明朝体系、 cursive だったら筆記体系、 monospace だったら全ての文字が同じ幅になる等幅フォントという意味。<br>
+        この総称フォントファミリーを最後に指定しておくことによって、これらが全て見つからなかった場合、このカテゴリーのフォントからあるものを自動的に選んでくれるので必ず指定しておくべし。<br>
+      </pre>
+    <p>
+      @charset "utf-8";はSS に日本語が含まれる場合、ブラウザによっては文字化けする可能性があるのでそれを防ぐ為のモノである。<br>
+      
+      
+      <br>下はCSSのコードである
+    </p>
+
+    <p1>
+      各行には行ボックスと呼ばれる領域が設定されている。その高さの設定がline-heightである。
+      <img src="img/line-height.png" width="1107" height="551" alt="画像が見えてないよん。"><br>
+      各プロパティ解説その2<br>
+      font-size: フォントの大きさ<br>
+      line-height: line-heightの高さの設定<br>
+      3em;親要素のフォントの三倍の意味<br>
+      line-height: 3;要素ごとの三倍の意味<br>
+      background-color: フォントの背景色<br>
+    </p1>
+
+    <main_1>
+      親要素によるline-height<br>
+      <section_1>
+        子要素によるline-height上下の幅に注目。親要素の三倍か、この要素の3倍かline-heightの高さが違う。こっちは親要素三倍の幅。<br>
+      </section_1>
+      親要素によるline-height<br>
+    </main_1>
+
+    <main>
+      親要素によるline-height<br>
+      <section>
+        子要素によるline-height上下の幅に注目。親要素の三倍か、この要素の3倍かline-heightの高さが違う。こっちは各要素三倍の幅。<br>
+      </section>
+      親要素によるline-height<br>
+    </main>
+      
+<h3>ベースライン周りの設定諸々</h3>
+<p>文字にはベースラインと言って、行ボックス内での文字の位置を定義する線がある。
+  <br>画像の位置などをベースライン基準にするか、行ボックス基準にするか選べる。その場合の例を下に羅列する。</p>
+  デフォルト。詳しくは<a href="vertical-align/vertical-align_b.html" target="_blank">コチラ</a>。<br>
+  中央。詳しくは<a href="vertical-align/vertical-align_m.html" target="_blank">コチラ</a>。<br>
+  下。詳しくは<a href="vertical-align/vertical-align_bo.html" target="_blank">コチラ</a>。<br>
+  上。詳しくは<a href="vertical-align/vertical-align_t.html" target="_blank">コチラ</a>。<br>
+  ピクセル。詳しくは<a href="vertical-align/vertical-align_px.html" target="_blank">コチラ</a>。<br>
+
+      <a href="">リンク</a>
+    
+    <code>
+    </code>
+
+    <br><a href="index.html">ホーム</a>
+  </body>
+</html>
