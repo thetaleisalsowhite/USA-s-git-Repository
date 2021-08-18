@@ -1,0 +1,22 @@
+h1 {
+  color: red;
+}
+
+/* body {
+  color: skyblue;
+  border: 1px solid red;
+}
+
+h1 {
+  border: inherit;
+} */
+
+p3 {
+  color: skyblue;
+  font-size: 20px;
+  /* color: red; */
+}
+p4 {
+  border: 1px solid pink;
+  /* color: red; */
+}
