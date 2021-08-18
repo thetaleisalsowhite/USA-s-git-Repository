@@ -7,5 +7,6 @@ int main(void) {
     printf("‚±‚ñ‚É‚¿‚Í!\n");
     printf("%d\n",i);
   }
+  
     return 0;
 }
