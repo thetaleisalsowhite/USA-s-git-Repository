@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+h1 {
+  color: red;
+  font-size: 48px;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: line-through;
+  font-family: Verdana, 'Arial Black', メイリオ, sans-serif;
+}
+
+p {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+p1 {
+  font-size: 16px;
+  line-height: 48px;
+  line-height: 3em;
+  line-height: 3;
+  background-color: yellow;
+}
+
+a {
+  text-decoration: none;
+}
+
+main_1 {
+  font-size: 32px;
+  line-height: 3em;
+}
+
+section_1 {
+  font-size: 16px;
+  background-color: greenyellow;
+}
+
+main {
+  font-size: 32px;
+  line-height: 3;
+}
+
+section {
+  font-size: 16px;
+  background-color: greenyellow;
+  line-height: 3;
+}

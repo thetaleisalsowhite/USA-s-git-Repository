@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSSの練習</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    p1 {
+    color: blue;
+  }
+  </style>
+
+</head>
+<body>
+  <h1>CSSの練習を始めるよん</h1>
+  <p1>進捗生成中。既に発表当日。<br>色はhtml内に、styleタグを設置して書く方法と、ほかのファイル内の情報をlinkタグで呼び出し方法、要素に直接書く方法の3通りがあるがある。因みにこの文章の色はファイルから読み取るやり方、タイトルは1つ目のやり方、次の文章は直接のやり方で書いている。</p1>
+  <p style="color: green">＜p style="color: green"＞と書くことで直接色を変えている</p>
+
+  <p3> CSS{} （波括弧）の中に書いたスタイルを設定する、といった書き方をする。<br>スタイルを指定する要素のことをセレクター、そしてこちらの指定するスタイルのことを宣言と呼ぶ。<br>宣言のコロン左側はプロパティ、コロン右側を値という。宣言の最後にセミコロンを忘れてはいけない。<br>なお、この文はフォントサイズをいじってある。<br></p3>
+
+  
+    <p4>セレクターをbodyにすればbody全体の要素を設定できる。今回はしていない<br>因みに、CSSとは、Cascading Style Sheetの略である。Cascadingは「段階的に」の意味であり、親要素から子要素孫要素と段階的に設定が継承されていくことを意味している。<br>この文章にはborderプロパティによって境界線を付けている。  border: 1px solid pink;と書く。bodyのような要素全体に囲いを付けることも可能である。<br>colorプロパティは継承があるのに対して、borderプロパティには継承がない。このような情報はMDNのwebサイトが最も信用できる。#6参照<br>継承されないプロパティも継承させたい場合、border: inherit;と言った形でinheritという値を付ける必要がある。覚えておくべし。<br>この部分の仕様はstyle.cssファイルにコメントアウトしてある。</p4>
+  
+
+  <br><a href="index.html">ホーム</a>
+</body>
+</html>
