@@ -1,0 +1,69 @@
+%%% 論文（A）と一般記事用（B）のテンプレート
+%%% 必要に応じてどちらかを使ってください．
+
+%%% A. 論文
+\documentclass[paper]{jrsj_UTF-8}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+
+%% 頁（指定する必要なし）
+%\setcounter{page}{1}
+%% 通巻頁（指定する必要なし）
+%\volpage{101}
+
+%% 論文の種類を記入（学術・技術論文 / 学術論文 / 討論など）
+\typeofpaper{レター}
+%% 発行年（コメントアウトしておく）
+%\Year{2018}
+%% 巻数（コメントアウトしておく）
+%\Vol{36}
+%% 号数（コメントアウトしておく）
+%\No{1}
+%% 邦文題名
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{第39回日本ロボット学会学術講演会}
+%% 邦文副題名（必要な場合のみ）
+\subtitle{レター同時投稿用の原稿の書き方}
+%% 英文題名
+\etitle{RSJ2021How to write Letter}
+%% 英文副題名（必要な場合のみ）
+\esubtitle{How to write Letter}
+%% 著者のリスト
+\authorlist{%
+\authorentry{信州 太郎}{Taro Shinsyu}{label1}
+\authorentry{東北 花子}{Hanako Tohoku}{label2}
+}
+%% 著者の所属
+\affiliate[label1]{日本ロボット学会}{RSJ}
+\affiliate[label2]{(株)RSJ}{RSJ co. ltd.}
+
+%% 原稿受付日（記述しない，空欄に）
+\received{}
+%% 本論文は××性（××××分野）で評価されました．
+\evaluated{要素分野}
+
+\begin{document}
+\begin{abstract}
+Letterには，Abstractが必要です．Letterには，Abstractが必要です．Letterには，Abstractが必要です．
+Letterには，Abstractが必要です．Letterには，Abstractが必要です．Letterには，Abstractが必要です．
+Letterには，Abstractが必要です．Letterには，Abstractが必要です．Letterには，Abstractが必要です．
+\end{abstract}
+%% 英文キーワード
+\begin{keywords}
+Letterには，KeyWordsが必要です．
+\end{keywords}
+\maketitle
+
+\input{210520_UTF-8_sampleBody.tex}
+
+%% 付録（必要な場合のみ）
+%\appendix 
+
+   
+\end{document}
