@@ -1,0 +1,17 @@
+# Fdb version 3
+["dvipdf"] 0 "out/test.dvi" "out/test.pdf" "out/test" 0
+  "out/test.dvi" 0 -1 0 "latex"
+  (generated)
+  "out/test.pdf"
+["latex"] 1643253284 "c:/Users/dorae/USA-s-git-Repository/LaTeX-Practice/test.tex" "out/test.dvi" "test" 1643253284
+  "c:/Users/dorae/USA-s-git-Repository/LaTeX-Practice/test.tex" 1643253257 9589 9edef5432908e51241601e3b15b17fa9 ""
+  "c:/texlive/2021/texmf-dist/web2c/texmf.cnf" 1642461132 40042 fe981136cbb5f3715ab1b0e46e3d3892 ""
+  "c:/texlive/2021/texmf-var/web2c/eptex/platex.fmt" 1642468360 2751389 b12f850a0597062dee18392c5fccd4f4 ""
+  "c:/texlive/2021/texmf.cnf" 1642468161 713 e69b156964470283e0530f5060668171 ""
+  "jrsj_UTF-8.cls" 0 -1 0 ""
+  "out/jrsj_UTF-8.cls" 0 -1 0 ""
+  "out/test.aux" 1643253284 34 3985256e7290058c681f74d7a3565a19 ""
+  "test.tex" 1643253257 9589 9edef5432908e51241601e3b15b17fa9 ""
+  (generated)
+  "out/test.dvi"
+  "out/test.log"
